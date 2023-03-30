@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class UserReg {
     static Pattern pattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
-    static Pattern emailPattern = Pattern.compile("^(abc.)[a-z]{3,}@bl.co.[a-z]{2}$");
+    static Pattern emailPattern = Pattern.compile("^[^\s@]+@[^\s@]+\.[^\s@]+$");
 
 
     public static void main(String[] args) {
