@@ -2,28 +2,40 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserReg {
-    static Pattern pattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
-    static Pattern emailPattern = Pattern.compile("^[^\s@]+@[^\s@]+\.[^\s@]+$");
-
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to user registration regex problem!");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter first name starting with capital letter of at-least 3 character : \n");
-        String firstName = scanner.nextLine();
-        System.out.println("Enter last name starting with capital letter of at-least 3 character : \n");
-        String lastName = scanner.nextLine();
-        System.out.println("Enter email :\n");
-        String email = scanner.nextLine();
-        Matcher matcher1 = pattern.matcher(firstName);
-        Matcher matcher2 = pattern.matcher(lastName);
-        Matcher matcher3 = emailPattern.matcher(email);
-        if ( matcher1.matches() && matcher2.matches() && matcher3.matches()){
-            System.out.println("Name and email is valid!");
-        }else {
-            System.out.println("Name and email is invalid!");
+public class UserRegUtility {
+    public boolean validateFirstName(String firstName) {
+        String validFirstName = "^[A-Z][a-zA-Z]{2,}";
+        Pattern pattern = Pattern.compile(validFirstName);
+        Matcher matcher = pattern.matcher(firstName);
+        if (matcher.matches()) {
+            System.out.println("First Name is valid!!");
+            return true;
+        } else {
+            System.out.println("First Name is Invalid!!");
+            return false;
         }
-
     }
-}
+     public boolean validateLastName(String lastName) {
+        String validLastName = "^[A-Z][a-zA-Z]{2,}";
+        Pattern pattern = Pattern.compile(validLastName);
+        Matcher matcher = pattern.matcher(lastName);
+        if (matcher.matches()) {
+            System.out.println("Last name is valid!!");
+            return true;
+        } else {
+            System.out.println("Last name is Invalid!!");
+            return false;
+        }
+    }
+    public boolean validateEmail(String email) {
+        String ValidEmail = "^[a-z0-9]{1,}[_+-.]?[a-z0-9]*[^_+-.][@]([a-z0-9])+([.][a-z]{2,})(.[a-z]{2,3})?$";
+        Pattern pattern = Pattern.compile(ValidEmail);
+        Matcher matcher = pattern.matcher(email);
+        if (matcher.matches()) {
+            System.out.println("Email-ID is valid!!");
+            return true;
+        } else {
+            System.out.println("Email-ID is Invalid!!");
+            return false;
+        }
+    }
