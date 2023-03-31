@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Uservalidation {
+public class UserValidation {
 
     public static boolean userFirstName(String firstName) {
 
